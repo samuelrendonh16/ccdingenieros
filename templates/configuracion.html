@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuración - Maestro de Consecutivos</title>
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="stylesheet" href="/static/css/header.css">
+    <link rel="stylesheet" href="/static/css/configuracion.css">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="/static/img/Logo.png" alt="Logo MiG Sistemas">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/"><i data-lucide="home"></i> Inicio</a></li>
+                <li><a href="/inventario"><i data-lucide="package"></i> Inventario</a></li>
+                <li><a href="/maestros"><i data-lucide="database"></i> Maestros</a></li>
+                <li><a href="/informes"><i data-lucide="file-text"></i> Informes</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main class="container">
+        <h1>Maestro de Consecutivos</h1>
+        
+        <div class="actions-bar">
+            <div class="left-actions">
+                <button id="btnNuevo" class="btn-primary"><i data-lucide="plus"></i> Nuevo</button>
+                <button id="btnEditar" class="btn-secondary"><i data-lucide="edit"></i> Editar</button>
+                <button id="btnGuardar" class="btn-success" disabled><i data-lucide="save"></i> Guardar</button>
+                <button id="btnBorrar" class="btn-danger"><i data-lucide="trash-2"></i> Borrar</button>
+            </div>
+            <div class="right-actions">
+                <input type="text" id="buscar" placeholder="Buscar..." class="search-input">
+            </div>
+        </div>
+
+        <form id="consecutivoForm" class="form-grid">
+            <div class="form-group">
+                <label for="numero">* Número</label>
+                <input type="text" id="numero" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="descripcion">* Descripción</label>
+                <input type="text" id="descripcion" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="formulario">* Formulario</label>
+                <input type="text" id="formulario" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="prefijo">* Prefijo</label>
+                <input type="text" id="prefijo" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="desde">* Desde</label>
+                <input type="number" id="desde" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="hasta">* Hasta</label>
+                <input type="number" id="hasta" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="actual">* Actual</label>
+                <input type="text" id="actual" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="resolucion">Resolución</label>
+                <input type="text" id="resolucion">
+            </div>
+            
+            <div class="form-group">
+                <label for="fechaResolucion">Fecha Resolución</label>
+                <input type="date" id="fechaResolucion">
+            </div>
+            
+            <div class="form-group full-width">
+                <label for="observaciones">Observaciones</label>
+                <textarea id="observaciones" rows="4"></textarea>
+            </div>
+            
+            <div class="form-group checkbox-group">
+                <label>
+                    <input type="checkbox" id="inactivo">
+                    Inactivo
+                </label>
+            </div>
+        </form>
+
+        <div class="table-container">
+            <table id="consecutivosTable">
+                <thead>
+                    <tr>
+                        <th>Id Consecutivo</th>
+                        <th>Consecutivo</th>
+                        <th>Formulario</th>
+                        <th>Prefijo</th>
+                        <th>Desde</th>
+                        <th>Hasta</th>
+                        <th>Actual</th>
+                        <th>Resolución</th>
+                        <th>Fecha Resolución</th>
+                        <th>Observaciones</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Los datos se cargarán dinámicamente -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 CCD Ingeniería. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="/static/js/configuracion.js"></script>
+</body>
+</html>

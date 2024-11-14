@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maestro de Grupos - MiG Sistemas</title>
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="stylesheet" href="/static/css/header.css">
+    <link rel="stylesheet" href="/static/css/grupos.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="/static/img/Logo.png" alt="Logo MiG Sistemas">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/"><i data-lucide="home"></i> Inicio</a></li>
+                <li><a href="/inventario"><i data-lucide="package"></i> Inventario</a></li>
+                <li><a href="/maestros" class="active"><i data-lucide="database"></i> Maestros</a></li>
+                <li><a href="/informes"><i data-lucide="file-text"></i> Informes</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="grupos-container">
+        <h1>Maestro de Grupos</h1>
+        <div class="action-bar">
+            <button class="btn btn-primary"><i data-lucide="plus"></i> Nuevo</button>
+            <button class="btn btn-secondary"><i data-lucide="save"></i> Guardar</button>
+            <button class="btn btn-secondary"><i data-lucide="edit"></i> Editar</button>
+            <button class="btn btn-secondary"><i data-lucide="x"></i> Cancelar</button>
+            <button class="btn btn-secondary"><i data-lucide="x-circle"></i> Cerrar</button>
+            <button class="btn btn-danger"><i data-lucide="trash-2"></i> Eliminar</button>
+        </div>
+        <form class="grupos-form">
+            <div class="form-group">
+                <label for="codigo">* Código</label>
+                <input type="text" id="codigo" name="codigo" required>
+            </div>
+            <div class="form-group">
+                <label for="descripcion">* Descripción</label>
+                <input type="text" id="descripcion" name="descripcion" required>
+            </div>
+            <div class="form-group checkboxes">
+                <label><input type="checkbox" name="estado"> Estado</label>
+                <label><input type="checkbox" name="venta"> Venta</label>
+            </div>
+        </form>
+        <div class="search-container">
+            <input type="text" id="buscar" name="buscar" placeholder="Buscar...">
+        </div>
+        <div class="table-container">
+            <table class="grupos-table">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Descripción</th>
+                        <th>Estado</th>
+                        <th>Menupos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Aquí se insertarán las filas de datos dinámicamente -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <script src="/static/js/grupos.js"></script>
+</body>
+</html>

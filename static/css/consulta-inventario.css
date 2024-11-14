@@ -1,0 +1,114 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.consulta-inventario-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.consulta-inventario-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+h1 {
+    color: #003366;
+    margin: 0;
+}
+
+.action-bar {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-primary { background-color: #4CAF50; color: white; }
+.btn-secondary { background-color: #f0f0f0; color: #333; }
+.btn-danger { background-color: #f44336; color: white; }
+
+.btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.filter-options {
+    margin-bottom: 1rem;
+}
+
+.filter-options label {
+    margin-right: 1rem;
+}
+
+.search-container {
+    margin-bottom: 1rem;
+}
+
+#search-input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+.inventario-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.inventario-table th,
+.inventario-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.inventario-table th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+.inventario-table tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+@media (max-width: 768px) {
+    .consulta-inventario-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .action-bar {
+        margin-top: 1rem;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}

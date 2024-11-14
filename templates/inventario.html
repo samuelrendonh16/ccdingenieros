@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Inventario - MiG Sistemas</title>
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="stylesheet" href="/static/css/header.css">
+    <link rel="stylesheet" href="/static/css/inventario.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="/static/img/Logo.png" alt="Logo MiG Sistemas">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/"><i data-lucide="home"></i> Inicio</a></li>
+                <li><a href="/inventario" class="active"><i data-lucide="package"></i> Inventario</a></li>
+                <li><a href="/maestros"><i data-lucide="database"></i> Maestros</a></li>
+                <li><a href="/informes"><i data-lucide="file-text"></i> Informes</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="inventario-container">
+        <h1>Gestión de Inventario</h1>
+        <div class="inventario-grid">
+            <div class="inventario-item" id="ordenes-compra">
+                <i data-lucide="shopping-cart" class="inventario-icon"></i>
+                <h2>Órdenes de Compra</h2>
+                <p>Gestione las órdenes de compra de la empresa</p>
+            </div>
+            <div class="inventario-item" id="compras-proveedor">
+                <i data-lucide="truck" class="inventario-icon"></i>
+                <h2>Compras Proveedor</h2>
+                <p>Administre las compras realizadas a proveedores</p>
+            </div>
+            <div class="inventario-item" id="traslados-inventario">
+                <i data-lucide="move" class="inventario-icon"></i>
+                <h2>Traslados a Bodegas</h2>
+                <p>Controle los traslados entre diferentes bodegas</p>
+            </div>
+            <div class="inventario-item" id="entradas-inventario">
+                <i data-lucide="log-in" class="inventario-icon"></i>
+                <h2>Entradas a Bodegas</h2>
+                <p>Registre las entradas de productos a las bodegas</p>
+            </div>
+            <div class="inventario-item" id="salidas-inventario">
+                <i data-lucide="log-out" class="inventario-icon"></i>
+                <h2>Salidas de Bodegas</h2>
+                <p>Gestione las salidas de productos de las bodegas</p>
+            </div>
+            <div class="inventario-item" id="consulta-inventario">
+                <i data-lucide="search" class="inventario-icon"></i>
+                <h2>Consulta Inventario</h2>
+                <p>Revise el estado actual del inventario</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 CCD Ingeniería. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="/static/js/inventario.js"></script>
+</body>
+</html>

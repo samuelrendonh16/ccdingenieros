@@ -1,0 +1,671 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.compras-proveedor-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.compras-proveedor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+h1 {
+    color: #003366;
+    margin: 0;
+}
+
+.action-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-primary { background-color: #4CAF50; color: white; }
+.btn-success { background-color: #45a049; color: white; }
+.btn-secondary { background-color: #f0f0f0; color: #333; }
+.btn-danger { background-color: #f44336; color: white; }
+.btn-info { background-color: #2196F3; color: white; }
+
+.btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.compras-proveedor-form {
+    display: grid;
+    gap: 1rem;
+}
+
+.form-row {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.form-group {
+    flex: 1;
+    min-width: 200px;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #555;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.input-with-button {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.input-with-button input {
+    flex: 1;
+}
+
+.totales-section {
+    background-color: #f9f9f9;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-top: 1rem;
+}
+
+.items-section {
+    margin-top: 2rem;
+    overflow-x: auto;
+}
+
+.search-bar {
+    margin-bottom: 1rem;
+}
+
+.items-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.items-table th,
+.items-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.items-table th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .compras-proveedor-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .action-bar {
+        margin-top: 1rem;
+    }
+
+    .form-row {
+        flex-direction: column;
+    }
+
+    .form-group {
+        width: 100%;
+    }
+}
+
+/* Modales */
+.modal-busqueda {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    padding: 1rem;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 8px;
+    max-width: 900px;
+    width: 90%;
+    margin: 2rem auto;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.modal-header {
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h3 {
+    margin: 0;
+    color: #2c3e50;
+}
+
+.btn-cerrar {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #666;
+    padding: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.btn-cerrar:hover {
+    color: #e74c3c;
+}
+
+.modal-body {
+    padding: 1rem;
+    overflow-y: auto;
+}
+
+/* Tabla de búsqueda */
+.tabla-resultados {
+    margin-top: 1rem;
+}
+
+.tabla-resultados table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabla-resultados th {
+    background-color: #f8f9fa;
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 2px solid #dee2e6;
+    color: #495057;
+}
+
+.tabla-resultados td {
+    padding: 0.75rem;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.tabla-resultados tr:hover {
+    background-color: #f8f9fa;
+}
+
+/* Input de búsqueda mejorado */
+.input-busqueda {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.input-busqueda:focus {
+    border-color: #2196F3;
+    box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.1);
+    outline: none;
+}
+
+/* Tabla de items mejorada */
+.items-table {
+    position: relative;
+}
+
+.items-table thead th {
+    position: sticky;
+    top: 0;
+    background-color: #f8f9fa;
+    z-index: 10;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.items-table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.items-table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+.items-table td[contenteditable="true"] {
+    position: relative;
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.items-table td[contenteditable="true"]:hover {
+    background-color: #e8f4fd;
+}
+
+.items-table td[contenteditable="true"]:focus {
+    background-color: #fff;
+    box-shadow: inset 0 0 0 2px #2196F3;
+    outline: none;
+}
+
+/* Mejoras en los botones */
+.btn-small {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+}
+
+.btn i {
+    width: 16px;
+    height: 16px;
+}
+
+/* Saldos del proveedor */
+.saldos-proveedor {
+    padding: 1rem;
+}
+
+.saldos-proveedor h3 {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #eee;
+}
+
+.saldo-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.saldo-item:last-child {
+    border-bottom: none;
+}
+
+.saldo-item span:first-child {
+    color: #666;
+    font-weight: 500;
+}
+
+.saldo-item span:last-child {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+/* Estados y validaciones */
+.campo-error {
+    border-color: #e74c3c !important;
+}
+
+.mensaje-error {
+    color: #e74c3c;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+.campo-correcto {
+    border-color: #2ecc71 !important;
+}
+
+/* Responsive improvements */
+@media (max-width: 1024px) {
+    .modal-content {
+        width: 95%;
+        margin: 1rem auto;
+    }
+
+    .form-row {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Clases de utilidad */
+.animated {
+    animation: fadeIn 0.3s ease;
+}
+
+.slide-in {
+    animation: slideIn 0.3s ease;
+}
+
+/* Mejoras en campos numéricos */
+input[type="number"] {
+    text-align: right;
+}
+
+/* Totales mejorados */
+.totales-section .form-row {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 6px;
+    margin-bottom: 0.5rem;
+}
+
+.totales-section .form-group {
+    margin-bottom: 0.5rem;
+}
+
+.totales-section input {
+    font-weight: bold;
+    color: #2c3e50;
+    background-color: white;
+}
+
+.totales-section input:disabled {
+    background-color: #f8f9fa;
+    border-color: #ddd;
+}
+
+/* Estado de carga */
+.loading {
+    position: relative;
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8) url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIHZpZXdCb3g9IjAgMCA1MCA1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMjUgMThjNy4yIDAgMTMgNS44IDEzIDEzcy01LjggMTMtMTMgMTMtMTMtNS44LTEzLTEzIDUuOC0xMyAxMy0xM3ptMC0yYy04LjI4NCAwLTE1IDYuNzE2LTE1IDE1czYuNzE2IDE1IDE1IDE1IDE1LTYuNzE2IDE1LTE1LTYuNzE2LTE1LTE1LTE1eiIgZmlsbD0iIzAwMCIgZmlsbC1ydWxlPSJub256ZXJvIi8+PC9zdmc+') center no-repeat;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Modal Base */
+.modal-busqueda-productos {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1050;
+    padding: 1rem;
+}
+
+.modal-busqueda-productos .modal-content {
+    background-color: #fff;
+    margin: 2% auto;
+    width: 90%;
+    max-width: 1100px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Encabezado del Modal */
+.modal-busqueda-productos .modal-header {
+    background-color: #003366;
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: none;
+}
+
+.modal-busqueda-productos .modal-header h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.modal-busqueda-productos .btn-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.modal-busqueda-productos .btn-close:hover {
+    opacity: 1;
+}
+
+/* Cuerpo del Modal */
+.modal-busqueda-productos .modal-body {
+    padding: 1.5rem;
+}
+
+/* Barra de Búsqueda */
+.modal-busqueda-productos .input-group {
+    margin-bottom: 1.5rem;
+}
+
+.modal-busqueda-productos .input-busqueda {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.modal-busqueda-productos .input-busqueda:focus {
+    border-color: #003366;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.1);
+}
+
+/* Tabla de Resultados */
+.modal-busqueda-productos .table-responsive {
+    max-height: calc(80vh - 200px);
+    overflow-y: auto;
+    border-radius: 6px;
+    border: 1px solid #e0e0e0;
+}
+
+.modal-busqueda-productos table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: white;
+}
+
+.modal-busqueda-productos th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #495057;
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 2px solid #dee2e6;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.modal-busqueda-productos td {
+    padding: 0.875rem 1rem;
+    border-bottom: 1px solid #e9ecef;
+    color: #333;
+}
+
+/* Columnas específicas */
+.modal-busqueda-productos td:nth-child(1) { /* Código */
+    width: 12%;
+    font-family: monospace;
+}
+
+.modal-busqueda-productos td:nth-child(2) { /* Descripción */
+    width: 30%;
+}
+
+.modal-busqueda-productos td:nth-child(3) { /* Unidad */
+    width: 10%;
+    text-align: center;
+}
+
+.modal-busqueda-productos td:nth-child(4) { /* Stock */
+    width: 12%;
+    text-align: right;
+}
+
+.modal-busqueda-productos td:nth-child(5) { /* Costo */
+    width: 15%;
+    text-align: right;
+}
+
+.modal-busqueda-productos td:nth-child(6) { /* IVA */
+    width: 8%;
+    text-align: right;
+}
+
+.modal-busqueda-productos td:nth-child(7) { /* Acciones */
+    width: 13%;
+    text-align: center;
+}
+
+/* Filas de la tabla */
+.modal-busqueda-productos tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+/* Botón Seleccionar */
+.modal-busqueda-productos .btn-seleccionar {
+    background-color: #003366;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.875rem;
+    transition: background-color 0.2s;
+}
+
+.modal-busqueda-productos .btn-seleccionar:hover {
+    background-color: #004c99;
+}
+
+/* Estilos para cantidades y moneda */
+.modal-busqueda-productos .cantidad {
+    font-family: monospace;
+    font-size: 0.9375rem;
+}
+
+.modal-busqueda-productos .moneda {
+    font-family: monospace;
+    font-size: 0.9375rem;
+}
+
+/* Mensaje sin resultados */
+.modal-busqueda-productos .sin-resultados {
+    text-align: center;
+    padding: 2rem;
+    color: #666;
+    font-style: italic;
+}
+
+/* Scrollbar personalizado */
+.modal-busqueda-productos .table-responsive::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.modal-busqueda-productos .table-responsive::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.modal-busqueda-productos .table-responsive::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+.modal-busqueda-productos .table-responsive::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+.modal-busqueda-productos .stock-column {
+    font-family: monospace;
+    background-color: #f8f9fa;
+    font-weight: 500;
+    text-align: right !important;
+    padding-right: 1rem !important;
+}
+
+.modal-busqueda-productos td.text-end {
+    text-align: right !important;
+    padding-right: 1rem !important;
+    font-family: monospace;
+}
+
+.modal-busqueda-productos th {
+    background-color: #f8f9fa;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.modal-busqueda-productos tbody tr:hover {
+    background-color: #f5f5f5;
+}

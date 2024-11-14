@@ -1,0 +1,559 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.ordenes-compra-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.ordenes-compra-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+h1 {
+    color: #003366;
+    margin: 0;
+}
+
+.action-bar {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.btn-secondary {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.ordenes-compra-form {
+    display: grid;
+    gap: 1rem;
+}
+
+.form-row {
+    display: flex;
+    gap: 1rem;
+}
+
+.form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 0.5rem;
+    color: #555;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="number"],
+select,
+textarea {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.input-with-button {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.input-with-button input {
+    flex: 1;
+}
+
+.checkbox-row {
+    display: flex;
+    gap: 2rem;
+}
+
+.checkbox-row .form-group {
+    flex: 0 1 auto;
+}
+
+.totales-section {
+    background-color: #f9f9f9;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-top: 1rem;
+}
+
+.items-section {
+    margin-top: 2rem;
+}
+
+.search-bar {
+    margin-bottom: 1rem;
+}
+
+.items-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.items-table th,
+.items-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.items-table th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .form-row {
+        flex-direction: column;
+    }
+    
+    .action-bar {
+        flex-wrap: wrap;
+    }
+    
+    .btn {
+        flex: 1 0 calc(50% - 0.25rem);
+    }
+}
+
+.btn-cerrar {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.input-busqueda {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.tabla-resultados {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.tabla-resultados table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabla-resultados th,
+.tabla-resultados td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Estilos para los modales */
+.modal-proveedores,
+.modal-busqueda-productos {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.modal-content {
+    position: relative;
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 800px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.btn-cerrar {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+}
+
+.btn-cerrar:hover {
+    color: #000;
+}
+
+.modal-body {
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.input-busqueda {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.tabla-resultados table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabla-resultados th,
+.tabla-resultados td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.tabla-resultados thead th {
+    background-color: #f5f5f5;
+    font-weight: bold;
+}
+
+.tabla-resultados tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+/* Estilos para los botones de acción */
+.btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.btn.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-success {
+    background-color: #28a745;
+    color: white;
+}
+
+/* Estilos para campos readonly */
+input.readonly {
+    background-color: #f5f5f5;
+    cursor: not-allowed;
+    color: #666;
+}
+
+input.readonly:focus {
+    outline: none;
+    border-color: #ddd;
+}
+
+.spinner-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.spinner-container {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 10px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Modal Base */
+.modal-busqueda-productos {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1050;
+    padding: 1rem;
+}
+
+.modal-busqueda-productos .modal-content {
+    background-color: #fff;
+    margin: 2% auto;
+    width: 90%;
+    max-width: 1100px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Encabezado del Modal */
+.modal-busqueda-productos .modal-header {
+    background-color: #003366;
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: none;
+}
+
+.modal-busqueda-productos .modal-header h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.modal-busqueda-productos .btn-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.modal-busqueda-productos .btn-close:hover {
+    opacity: 1;
+}
+
+/* Cuerpo del Modal */
+.modal-busqueda-productos .modal-body {
+    padding: 1.5rem;
+}
+
+/* Barra de Búsqueda */
+.modal-busqueda-productos .input-group {
+    margin-bottom: 1.5rem;
+}
+
+.modal-busqueda-productos .input-busqueda {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.modal-busqueda-productos .input-busqueda:focus {
+    border-color: #003366;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.1);
+}
+
+/* Tabla de Resultados */
+.modal-busqueda-productos .table-responsive {
+    max-height: calc(80vh - 200px);
+    overflow-y: auto;
+    border-radius: 6px;
+    border: 1px solid #e0e0e0;
+}
+
+.modal-busqueda-productos table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: white;
+}
+
+.modal-busqueda-productos th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #495057;
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 2px solid #dee2e6;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.modal-busqueda-productos td {
+    padding: 0.875rem 1rem;
+    border-bottom: 1px solid #e9ecef;
+    color: #333;
+}
+
+/* Columnas específicas */
+.modal-busqueda-productos td:nth-child(1) { /* Código */
+    width: 12%;
+    font-family: monospace;
+}
+
+.modal-busqueda-productos td:nth-child(2) { /* Descripción */
+    width: 30%;
+}
+
+.modal-busqueda-productos td:nth-child(3) { /* Unidad */
+    width: 10%;
+    text-align: center;
+}
+
+.modal-busqueda-productos td:nth-child(4) { /* Stock */
+    width: 12%;
+    text-align: right;
+}
+
+.modal-busqueda-productos td:nth-child(5) { /* Costo */
+    width: 15%;
+    text-align: right;
+}
+
+.modal-busqueda-productos td:nth-child(6) { /* IVA */
+    width: 8%;
+    text-align: right;
+}
+
+.modal-busqueda-productos td:nth-child(7) { /* Acciones */
+    width: 13%;
+    text-align: center;
+}
+
+/* Filas de la tabla */
+.modal-busqueda-productos tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+/* Botón Seleccionar */
+.modal-busqueda-productos .btn-seleccionar {
+    background-color: #003366;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.875rem;
+    transition: background-color 0.2s;
+}
+
+.modal-busqueda-productos .btn-seleccionar:hover {
+    background-color: #004c99;
+}
+
+/* Estilos para cantidades y moneda */
+.modal-busqueda-productos .cantidad {
+    font-family: monospace;
+    font-size: 0.9375rem;
+}
+
+.modal-busqueda-productos .moneda {
+    font-family: monospace;
+    font-size: 0.9375rem;
+}
+
+/* Mensaje sin resultados */
+.modal-busqueda-productos .sin-resultados {
+    text-align: center;
+    padding: 2rem;
+    color: #666;
+    font-style: italic;
+}
+
+/* Scrollbar personalizado */
+.modal-busqueda-productos .table-responsive::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.modal-busqueda-productos .table-responsive::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.modal-busqueda-productos .table-responsive::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+.modal-busqueda-productos .table-responsive::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}

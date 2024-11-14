@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maestro de Proveedores - MiG Sistemas</title>
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="stylesheet" href="/static/css/header.css">
+    <link rel="stylesheet" href="/static/css/proveedores.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="/static/img/Logo.png" alt="Logo MiG Sistemas">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/"><i data-lucide="home"></i> Inicio</a></li>
+                <li><a href="/maestros" class="active"><i data-lucide="database"></i> Maestros</a></li>
+                <li><a href="/inventario"><i data-lucide="package"></i> Inventario</a></li>
+                <li><a href="/informes"><i data-lucide="file-text"></i> Informes</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="proveedores-container">
+        <div class="panel-proveedores">
+            <div class="panel-header">
+                <h1>Maestro de Proveedores</h1>
+                <div class="action-bar">
+                    <button class="btn btn-primary" id="btnNuevo"><i data-lucide="plus"></i> Nuevo</button>
+                    <button class="btn btn-success" id="btnGuardar"><i data-lucide="save"></i> Guardar</button>
+                    <button class="btn btn-info" id="btnEditar"><i data-lucide="edit"></i> Editar</button>
+                    <button class="btn btn-danger" id="btnEliminar"><i data-lucide="trash-2"></i> Eliminar</button>
+                    <button class="btn btn-secondary" id="btnCancelar"><i data-lucide="x"></i> Cancelar</button>
+                    <button class="btn btn-default" id="btnCerrar"><i data-lucide="x-circle"></i> Cerrar</button>
+                </div>
+            </div>
+
+            <form class="proveedor-form" id="proveedorForm">
+                <div class="form-section">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nit">NIT ó C.C *</label>
+                            <div class="nit-container">
+                                <input type="text" id="nit" name="nit" required>
+                                <input type="text" id="dv" name="dv" placeholder="DV" maxlength="1" class="dv-input">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="razonSocial">Razón Social *</label>
+                            <input type="text" id="razonSocial" name="razonSocial" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nombre1">Nombre1</label>
+                            <input type="text" id="nombre1" name="nombre1">
+                        </div>
+                        <div class="form-group">
+                            <label for="nombre2">Nombre2</label>
+                            <input type="text" id="nombre2" name="nombre2">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="apellido1">Apellido1</label>
+                            <input type="text" id="apellido1" name="apellido1">
+                        </div>
+                        <div class="form-group">
+                            <label for="apellido2">Apellido2</label>
+                            <input type="text" id="apellido2" name="apellido2">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="departamento">Departamento *</label>
+                            <select id="departamento" name="departamento" required>
+                                <option value="">Seleccione un departamento</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="ciudad">Ciudad *</label>
+                            <select id="ciudad" name="ciudad" required>
+                                <option value="">Seleccione una ciudad</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="cuenta">Número de Cuenta</label>
+                            <input type="text" id="cuenta" name="cuenta">
+                        </div>
+                        <div class="form-group">
+                            <label for="cxp">CxP</label>
+                            <input type="text" id="cxp" name="cxp">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="diasCredito">Días de Crédito</label>
+                            <input type="number" id="diasCredito" name="diasCredito" min="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group estado-group">
+                            <label>Estado</label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="estado" value="true" checked>
+                                    Activo
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="estado" value="false">
+                                    Inactivo
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <div class="table-container">
+                <div class="table-header">
+                    <div class="table-controls">
+                        <div class="entries-control">
+                            <label>Show
+                                <select id="entriesPerPage">
+                                    <option value="10">10</option>
+                                    <option value="25">25</option>
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+                                </select>
+                                entries
+                            </label>
+                        </div>
+                        <div class="search-control">
+                            <label>Search:
+                                <input type="search" id="tableSearch">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <table class="proveedores-table">
+                    <thead>
+                        <tr>
+                            <th>Nit</th>
+                            <th>Razón Social</th>
+                            <th>Nombre1</th>
+                            <th>Nombre2</th>
+                            <th>Apellido1</th>
+                            <th>Apellido2</th>
+                            <th>Número de Cuenta</th>
+                            <th>CxP</th>
+                            <th>Días de Crédito</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Los datos se cargarán dinámicamente -->
+                    </tbody>
+                </table>
+
+                <div class="table-footer">
+                    <div class="pagination">
+                        <button class="btn-page" id="btnPrevious">Previous</button>
+                        <div class="page-numbers">
+                            <!-- Los números de página se generarán dinámicamente -->
+                        </div>
+                        <button class="btn-page" id="btnNext">Next</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="/static/js/proveedores.js"></script>
+</body>
+</html>

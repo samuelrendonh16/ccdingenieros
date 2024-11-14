@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maestros - CCD Ingeniería</title>
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="stylesheet" href="/static/css/header.css">
+    <link rel="stylesheet" href="/static/css/maestros.css">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="/static/img/Logo.png" alt="Logo MiG Sistemas">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/"><i data-lucide="home"></i> Inicio</a></li>
+                <li><a href="/inventario"><i data-lucide="package"></i> Inventario</a></li>
+                <li><a href="/maestros" class="active"><i data-lucide="database"></i> Maestros</a></li>
+                <li><a href="/informes"><i data-lucide="file-text"></i> Informes</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="maestros-container">
+        <h1>Maestros</h1>
+        <div class="accordion">
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <i data-lucide="users"></i>
+                    <span>Terceros</span>
+                </button>
+                <div class="accordion-content">
+                    <ul>
+                        <li><a href="/proveedores"><i data-lucide="truck"></i> Proveedores</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <i data-lucide="package"></i>
+                    <span>Productos</span>
+                </button>
+                <div class="accordion-content">
+                    <ul>
+                        <li><a href="/grupos"><i data-lucide="folder"></i> Grupos</a></li>
+                        <li><a href="/subgrupos"><i data-lucide="folder-tree"></i> SubGrupos</a></li>
+                        <li><a href="/subcategorias"><i data-lucide="layers"></i> SubCategorías</a></li>
+                        <li><a href="/unidades"><i data-lucide="ruler"></i> Unidades</a></li>
+                        <li><a href="/estados-productos"><i data-lucide="tag"></i> Estado Producto</a></li>
+                        <li><a href="/referencias"><i data-lucide="list"></i> Referencias</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <i data-lucide="more-horizontal"></i>
+                    <span>Otros</span>
+                </button>
+                <div class="accordion-content">
+                    <ul>
+                        <li><a href="/bodegas"><i data-lucide="warehouse"></i> Bodegas</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 CCD Ingeniería. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="/static/js/maestros.js"></script>
+</body>
+</html>

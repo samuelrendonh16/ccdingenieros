@@ -1,0 +1,196 @@
+body {
+    background-color: #f0f2f5;
+}
+
+.informes-container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.informes-container h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+}
+
+.informes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.informe-item {
+    background-color: white;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.informe-icon {
+    width: 64px;
+    height: 64px;
+    color: #4CAF50;
+    margin-bottom: 1rem;
+}
+
+.informe-item h2 {
+    color: #333;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+.btn-primary {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #45a049;
+}
+
+.btn-secondary {
+    background-color: #2196F3;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #1e87db;
+}
+
+@media (max-width: 768px) {
+    .informes-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.dialogo-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.dialogo-contenido {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    min-width: 300px;
+}
+
+.fechas-selector {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.fecha-input {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.fecha-input label {
+    font-weight: bold;
+}
+
+.fecha-input input {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.dialogo-botones {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.tipo-informe-selector {
+    margin-bottom: 20px;
+}
+
+.tipo-informe-selector select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-top: 5px;
+}
+
+.informe-container {
+    max-width: 100%;
+    overflow-x: auto;
+    margin-top: 20px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.informe-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.informe-table th,
+.informe-table td {
+    padding: 12px 8px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.informe-table th {
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+}
+
+.informe-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.informe-table tr:hover {
+    background-color: #f5f5f5;
+}
+
+@media print {
+    .informe-table {
+        page-break-inside: auto;
+    }
+    
+    .informe-table tr {
+        page-break-inside: avoid;
+        page-break-after: auto;
+    }
+    
+    .informe-table th {
+        background-color: #ddd !important;
+        color: black !important;
+    }
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Inventario - MiG Sistemas</title>
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="stylesheet" href="/static/css/header.css">
+    <link rel="stylesheet" href="/static/css/consulta-inventario.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="/static/img/Logo.png" alt="Logo MiG Sistemas">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/"><i data-lucide="home"></i> Inicio</a></li>
+                <li><a href="/inventario" class="active"><i data-lucide="package"></i> Inventario</a></li>
+                <li><a href="/maestros"><i data-lucide="database"></i> Maestros</a></li>
+                <li><a href="/informes"><i data-lucide="file-text"></i> Informes</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="consulta-inventario-container">
+        <div class="consulta-inventario-header">
+            <h1>Consulta de Inventario</h1>
+            <div class="action-bar">
+                <button class="btn btn-primary"><i data-lucide="refresh-cw"></i> Actualizar</button>
+                <button class="btn btn-secondary"><i data-lucide="file-text"></i> Exportar</button>
+                <button class="btn btn-danger"><i data-lucide="x"></i> Cerrar</button>
+            </div>
+        </div>
+        <div class="filter-options">
+            <label>
+                <input type="radio" name="filter" value="todas" checked> Todas
+            </label>
+            <label>
+                <input type="radio" name="filter" value="con-saldo"> Con Saldo
+            </label>
+            <label>
+                <input type="radio" name="filter" value="servicio"> Servicio
+            </label>
+        </div>
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Buscar por ID o Nombre">
+        </div>
+        <div class="table-container">
+            <table class="inventario-table">
+                <thead>
+                    <tr>
+                        <th>ID Referencia</th>
+                        <th>Referencia</th>
+                        <th>Marca</th>
+                        <th>Precio Venta</th>
+                        <th>Ubicación</th>
+                        <th>Grupo</th>
+                        <th>ID Unidad</th>
+                        <th>Bodega</th>
+                        <th>Cantidad</th>
+                        <th>Costo</th>
+                        <th>Estado Producto</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Los datos de inventario se cargarán dinámicamente aquí -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 MiG Sistemas. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="/static/js/consulta-inventario.js"></script>
+</body>
+</html>

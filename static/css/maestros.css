@@ -1,0 +1,96 @@
+.maestros-container {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.maestros-container h1 {
+    color: var(--color-primary);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.accordion {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.accordion-item {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.accordion-item:last-child {
+    border-bottom: none;
+}
+
+.accordion-header {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--color-primary);
+    color: white;
+    text-align: left;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.accordion-header:hover {
+    background-color: var(--color-secondary);
+}
+
+.accordion-header i {
+    margin-right: 10px;
+}
+
+.accordion-content {
+    display: none;
+    padding: 1rem;
+    background-color: #f9f9f9;
+}
+
+.accordion-content ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.accordion-content li {
+    margin-bottom: 0.5rem;
+}
+
+.accordion-content a {
+    color: var(--color-text);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    border-radius: 4px;
+}
+
+.accordion-content a:hover {
+    color: var(--color-secondary);
+    background-color: #e0e0e0;
+}
+
+.accordion-content a i {
+    margin-right: 10px;
+}
+
+.accordion-item.active .accordion-header {
+    background-color: var(--color-secondary);
+}
+
+.accordion-item.active .accordion-content {
+    display: block;
+}
+
+/* Estilos para los iconos */
+.accordion-header i,
+.accordion-content a i {
+    width: 24px;
+    height: 24px;
+}
